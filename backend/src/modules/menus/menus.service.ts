@@ -17,7 +17,12 @@ export class MenusService {
   }
 
   async findAll(query: QueryMenuDto): Promise<PaginationResult<Menu>> {
-    const { filter, sort, skip, limit } = buildPaginationFilter(query);
+    const { filter, sort, skip, limit } = buildPaginationFilter({
+      page: query.page || 1,
+      limit: query.limit || 20,
+      sort: query.sort || 'createdAt:desc',
+      search: query.search,
+    });
     
     // Add specific filters
     if (query.mealType) {

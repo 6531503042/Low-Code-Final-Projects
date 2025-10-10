@@ -3,7 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import { User, UserDocument } from '../users/schema/users.schema';
+import { User, UserDocument } from '../user/schema/users.schema';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { CurrentUserPayload } from '../../common/decorators/current-user.decorator';
@@ -50,6 +50,9 @@ export class AuthService {
 
     // Return user without password
     const userResponse = await this.userModel.findById(user._id).select('-passwordHash');
+    if (!userResponse) {
+      throw new Error('User not found after creation');
+    }
 
     return {
       accessToken,
@@ -84,6 +87,9 @@ export class AuthService {
 
     // Return user without password
     const userResponse = await this.userModel.findById(user._id).select('-passwordHash');
+    if (!userResponse) {
+      throw new Error('User not found after login');
+    }
 
     return {
       accessToken,

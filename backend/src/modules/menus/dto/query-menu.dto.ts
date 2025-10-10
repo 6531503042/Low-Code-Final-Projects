@@ -27,14 +27,12 @@ export class QueryMenuDto {
   @ApiProperty({ example: 1, required: false })
   @IsOptional()
   @Transform(({ value }) => parseInt(value))
-  @IsNumberString()
   @Min(1)
   page?: number = 1;
 
   @ApiProperty({ example: 20, required: false })
   @IsOptional()
   @Transform(({ value }) => parseInt(value))
-  @IsNumberString()
   @Min(1)
   @Max(100)
   limit?: number = 20;

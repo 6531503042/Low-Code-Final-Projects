@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import { User, UserDocument } from '../modules/users/schema/users.schema';
+import { User, UserDocument } from '../modules/user/schema/users.schema';
 import { Menu, MenuDocument } from '../modules/menus/schemas/menu.schema';
 import { Preference, PreferenceDocument } from '../modules/preferences/schemas/preference.schema';
 import { Schedule, ScheduleDocument } from '../modules/schedules/schemas/schedule.schema';
@@ -61,7 +61,7 @@ export class SeedService {
     const mealTypes = ['breakfast', 'lunch', 'dinner'] as const;
     const allergens = ['peanut', 'shrimp', 'dairy', 'gluten', 'soy', 'egg', 'fish'];
 
-    const menus = [];
+    const menus: any[] = [];
 
     // Generate 20 menus per meal type (60 total)
     for (const mealType of mealTypes) {

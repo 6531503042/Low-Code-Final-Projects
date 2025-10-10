@@ -2,7 +2,7 @@ import { Injectable, NotFoundException, ForbiddenException, ConflictException } 
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import { User, UserDocument } from './schema/users.schema';
+import { User, UserDocument } from '../user/schema/users.schema';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { QueryUserDto } from './dto/query-user.dto';
@@ -35,11 +35,16 @@ export class UsersService {
     });
 
     await user.save();
-    return this.findById(user._id.toString());
+    return this.findById((user._id as any).toString());
   }
 
   async findAll(query: QueryUserDto): Promise<PaginationResult<any>> {
-    const { filter, sort, skip, limit } = buildPaginationFilter(query);
+    const { filter, sort, skip, limit } = buildPaginationFilter({
+      page: query.page || 1,
+      limit: query.limit || 20,
+      sort: query.sort || 'createdAt:desc',
+      search: query.search,
+    });
     
     // Add role filter if specified
     if (query.role) {
@@ -93,7 +98,7 @@ export class UsersService {
     }
 
     // Prevent self-deletion
-    if (user._id.toString() === currentUser.id) {
+    if ((user._id as any).toString() === currentUser.id) {
       throw new ForbiddenException('Cannot delete your own account');
     }
 

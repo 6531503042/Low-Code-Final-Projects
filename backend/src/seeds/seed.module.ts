@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { SeedService } from './seed.service';
-import { User, UserSchema } from '../modules/users/schema/users.schema';
+import { User, UserSchema } from '../modules/user/schema/users.schema';
 import { Menu, MenuSchema } from '../modules/menus/schemas/menu.schema';
 import { Preference, PreferenceSchema } from '../modules/preferences/schemas/preference.schema';
 import { Schedule, ScheduleSchema } from '../modules/schedules/schemas/schedule.schema';

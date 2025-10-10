@@ -32,7 +32,7 @@ async function bootstrap() {
   app.enableCors({
     origin: configService.get<string>('CORS_ORIGINS') === '*' 
       ? true 
-      : configService.get<string>('CORS_ORIGINS').split(','),
+      : configService.get<string>('CORS_ORIGINS')?.split(',') || '*',
     credentials: true,
   });
 

@@ -17,9 +17,9 @@ export class TransformInterceptor<T> implements NestInterceptor<T, any> {
       map((data) => {
         if (this.classToUse && data) {
           if (Array.isArray(data)) {
-            return data.map((item) => plainToClass(this.classToUse, item));
+            return data.map((item) => plainToClass(this.classToUse!, item));
           }
-          return plainToClass(this.classToUse, data);
+          return plainToClass(this.classToUse!, data);
         }
         return data;
       }),
