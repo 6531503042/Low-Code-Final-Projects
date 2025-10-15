@@ -5,19 +5,19 @@ export type MenuDocument = Menu & Document;
 
 @Schema({ timestamps: true })
 export class Menu {
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   title: string;
 
-  @Prop({ enum: ['breakfast', 'lunch', 'dinner'], index: true })
+  @Prop({ type: String, enum: ['breakfast', 'lunch', 'dinner'], index: true })
   mealType: 'breakfast' | 'lunch' | 'dinner';
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   cuisine: string;
 
-  @Prop({ default: true, index: true })
+  @Prop({ type: Boolean, default: true, index: true })
   isActive: boolean;
 
-  @Prop()
+  @Prop({ type: String })
   notes?: string;
 
   @Prop({ type: [String], default: [] })
@@ -29,7 +29,7 @@ export class Menu {
   @Prop({ type: Number })
   budgetMax?: number;
 
-  @Prop()
+  @Prop({ type: String })
   imageUrl?: string;
 
   createdAt: Date;

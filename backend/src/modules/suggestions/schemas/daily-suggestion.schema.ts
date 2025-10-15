@@ -8,7 +8,7 @@ export class DailySuggestion {
   @Prop({ type: Types.ObjectId, ref: 'User', required: true, index: true })
   userId: Types.ObjectId;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   date: string; // YYYY-MM-DD format
 
   @Prop({ type: Types.ObjectId, ref: 'Menu' })

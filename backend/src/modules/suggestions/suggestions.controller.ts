@@ -17,20 +17,23 @@ export class SuggestionsController {
   @ApiOperation({ summary: 'Generate meal suggestions for today' })
   @ApiResponse({ status: 201, description: 'Suggestions generated successfully' })
   async generateToday(@CurrentUser() currentUser: CurrentUserPayload) {
-    return this.suggestionsService.generateToday(currentUser.id, currentUser.timezone);
+    const result = await this.suggestionsService.generateToday(currentUser.id, currentUser.timezone);
+    return result ? JSON.parse(JSON.stringify(result)) : null;
   }
 
   @Get('today')
   @ApiOperation({ summary: 'Get today\'s meal suggestions' })
   @ApiResponse({ status: 200, description: 'Suggestions retrieved successfully' })
   async getToday(@CurrentUser() currentUser: CurrentUserPayload) {
-    return this.suggestionsService.getToday(currentUser.id, currentUser.timezone);
+    const result = await this.suggestionsService.getToday(currentUser.id, currentUser.timezone);
+    return result ? JSON.parse(JSON.stringify(result)) : null;
   }
 
   @Post('reroll')
   @ApiOperation({ summary: 'Reroll a specific meal type for today' })
   @ApiResponse({ status: 200, description: 'Meal rerolled successfully' })
   async reroll(@CurrentUser() currentUser: CurrentUserPayload, @Body() rerollDto: RerollDto) {
-    return this.suggestionsService.reroll(currentUser.id, currentUser.timezone, rerollDto);
+    const result = await this.suggestionsService.reroll(currentUser.id, currentUser.timezone, rerollDto);
+    return JSON.parse(JSON.stringify(result));
   }
 }

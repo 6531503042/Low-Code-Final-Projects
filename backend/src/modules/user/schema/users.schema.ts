@@ -5,19 +5,19 @@ export type UserDocument = User & Document;
 
 @Schema({ timestamps: true })
 export class User {
-  @Prop({ required: true, unique: true, lowercase: true, trim: true })
+  @Prop({ type: String, required: true, unique: true, lowercase: true, trim: true })
   email: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   passwordHash: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   name: string;
 
-  @Prop({ enum: ['admin', 'user'], default: 'user', index: true })
+  @Prop({ type: String, enum: ['admin', 'user'], default: 'user', index: true })
   role: 'admin' | 'user';
 
-  @Prop({ default: 'Asia/Bangkok' })
+  @Prop({ type: String, default: 'Asia/Bangkok' })
   timezone: string;
 
   createdAt: Date;

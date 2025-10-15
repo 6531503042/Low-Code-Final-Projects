@@ -62,7 +62,11 @@ export class SuggestionsService {
       { userId: new Types.ObjectId(userId), date },
       { [updateField]: newMeal?._id },
       { new: true },
-    );
+    ).populate([
+      { path: 'breakfastMenuId', model: 'Menu' },
+      { path: 'lunchMenuId', model: 'Menu' },
+      { path: 'dinnerMenuId', model: 'Menu' },
+    ]);
 
     if (!suggestion) {
       // If no suggestion exists for today, generate one

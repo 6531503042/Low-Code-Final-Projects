@@ -23,7 +23,7 @@ export class MenusService {
       sort: query.sort || 'createdAt:desc',
       search: query.search,
     });
-    
+
     // Add specific filters
     if (query.mealType) {
       filter.mealType = query.mealType;
@@ -41,6 +41,18 @@ export class MenusService {
     ]);
 
     return buildPaginationResult(menus, total, query.page || 1, query.limit || 20);
+  }
+
+  async findAllSimple(): Promise<Menu[]> {
+    return this.menuModel.find({ isActive: true }).limit(50).lean();
+  }
+
+  async getCount(): Promise<number> {
+    return this.menuModel.countDocuments({ isActive: true });
+  }
+
+  async getAllMenus(): Promise<Menu[]> {
+    return this.menuModel.find({ isActive: true }).limit(100).lean();
   }
 
   async findOne(id: string): Promise<Menu> {

@@ -10,14 +10,13 @@ import { Roles } from '../../common/decorators/roles.decorator';
 
 @ApiTags('Menus')
 @Controller('menus')
-@UseGuards(JwtAuthGuard)
-@ApiBearerAuth()
 export class MenusController {
   constructor(private readonly menusService: MenusService) {}
 
   @Post()
-  @UseGuards(RolesGuard)
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('admin')
+  @ApiBearerAuth()
   @ApiOperation({ summary: 'Create a new menu (Admin only)' })
   @ApiResponse({ status: 201, description: 'Menu created successfully' })
   @ApiResponse({ status: 403, description: 'Forbidden - Admin access required' })
@@ -26,6 +25,8 @@ export class MenusController {
   }
 
   @Get()
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @ApiOperation({ summary: 'Get all menus' })
   @ApiResponse({ status: 200, description: 'Menus retrieved successfully' })
   @ApiQuery({ name: 'search', required: false, description: 'Search term' })
@@ -37,6 +38,64 @@ export class MenusController {
   @ApiQuery({ name: 'sort', required: false, description: 'Sort field:direction' })
   findAll(@Query() query: QueryMenuDto) {
     return this.menusService.findAll(query);
+  }
+
+  @Get('public')
+  @ApiOperation({ summary: 'Get all menus (Public access)' })
+  @ApiResponse({ status: 200, description: 'Menus retrieved successfully' })
+  @ApiQuery({ name: 'search', required: false, description: 'Search term' })
+  @ApiQuery({ name: 'mealType', required: false, enum: ['breakfast', 'lunch', 'dinner'] })
+  @ApiQuery({ name: 'cuisine', required: false, description: 'Cuisine filter' })
+  @ApiQuery({ name: 'isActive', required: false, type: Boolean })
+  @ApiQuery({ name: 'page', required: false, type: Number })
+  @ApiQuery({ name: 'limit', required: false, type: Number })
+  @ApiQuery({ name: 'sort', required: false, description: 'Sort field:direction' })
+  findAllPublic(@Query() query: QueryMenuDto) {
+    return this.menusService.findAll(query);
+  }
+
+  @Get('all')
+  @ApiOperation({ summary: 'Get all menus (No auth required)' })
+  @ApiResponse({ status: 200, description: 'Menus retrieved successfully' })
+  async getAllMenus() {
+    try {
+      return await this.menusService.getAllMenus();
+    } catch (error) {
+      console.error('Error getting all menus:', error);
+      return { error: error.message, menus: [] };
+    }
+  }
+
+  @Get('simple')
+  @ApiOperation({ summary: 'Get all menus (Simple format)' })
+  @ApiResponse({ status: 200, description: 'Menus retrieved successfully' })
+  async findAllSimple() {
+    try {
+      return await this.menusService.findAllSimple();
+    } catch (error) {
+      console.error('Error in findAllSimple:', error);
+      throw error;
+    }
+  }
+
+  @Get('test')
+  @ApiOperation({ summary: 'Test endpoint' })
+  @ApiResponse({ status: 200, description: 'Test successful' })
+  test() {
+    return { message: 'Menus API is working!', timestamp: new Date().toISOString() };
+  }
+
+  @Get('count')
+  @ApiOperation({ summary: 'Get menus count' })
+  @ApiResponse({ status: 200, description: 'Menus count retrieved' })
+  async getCount() {
+    try {
+      const count = await this.menusService.getCount();
+      return { count };
+    } catch (error) {
+      console.error('Error getting count:', error);
+      return { error: error.message };
+    }
   }
 
   @Get(':id')

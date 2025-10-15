@@ -11,7 +11,7 @@ export class Schedule {
   @Prop({ type: [String], default: ['08:00', '12:00', '18:00'] })
   times: string[];
 
-  @Prop({ default: 'Asia/Bangkok' })
+  @Prop({ type: String, default: 'Asia/Bangkok' })
   timezone: string;
 
   createdAt: Date;
