@@ -137,4 +137,65 @@ export class MenusService {
 
     return result[0] || null;
   }
+
+  async pickMultipleMeals(mealType: 'breakfast' | 'lunch' | 'dinner', count: number): Promise<Menu[]> {
+    const result = await this.menuModel.aggregate([
+      { $match: { isActive: true, mealType } },
+      { $sample: { size: count } },
+    ]);
+    return result || [];
+  }
+
+  async pickMultipleWithPreferences(
+    mealType: 'breakfast' | 'lunch' | 'dinner',
+    preferences: {
+      cuisines?: string[];
+      allergensAvoid?: string[];
+      budgetMin?: number;
+      budgetMax?: number;
+    },
+    count: number,
+  ): Promise<Menu[]> {
+    const matchQuery: any = { isActive: true, mealType };
+
+    // Apply cuisine preferences
+    if (preferences?.cuisines && preferences.cuisines.length > 0) {
+      matchQuery.cuisine = { $in: preferences.cuisines };
+    }
+
+    // Apply allergen avoidance
+    if (preferences?.allergensAvoid && preferences.allergensAvoid.length > 0) {
+      matchQuery.allergens = { $nin: preferences.allergensAvoid };
+    }
+
+    // Apply budget preferences
+    if (preferences?.budgetMin !== undefined || preferences?.budgetMax !== undefined) {
+      matchQuery.$and = [];
+      
+      if (preferences.budgetMin !== undefined) {
+        matchQuery.$and.push({
+          $or: [
+            { budgetMax: null },
+            { budgetMax: { $gte: preferences.budgetMin } },
+          ],
+        });
+      }
+      
+      if (preferences.budgetMax !== undefined) {
+        matchQuery.$and.push({
+          $or: [
+            { budgetMin: null },
+            { budgetMin: { $lte: preferences.budgetMax } },
+          ],
+        });
+      }
+    }
+
+    const result = await this.menuModel.aggregate([
+      { $match: matchQuery },
+      { $sample: { size: count } },
+    ]);
+
+    return result || [];
+  }
 }

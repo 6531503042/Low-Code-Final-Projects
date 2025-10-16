@@ -57,45 +57,68 @@ export class SeedService {
   async seedMenus(): Promise<void> {
     console.log('🌱 Seeding menus...');
 
-    const cuisines = ['Thai', 'Japanese', 'Chinese', 'Korean', 'Western'];
-    const mealTypes = ['breakfast', 'lunch', 'dinner'] as const;
-    const allergens = ['peanut', 'shrimp', 'dairy', 'gluten', 'soy', 'egg', 'fish'];
+    // Clear existing to avoid stale/random images
+    await this.menuModel.deleteMany({});
 
+    // Curated menus with deterministic Unsplash photo IDs to match dishes exactly
+    const curated: Array<{
+      title: string;
+      cuisine: string;
+      mealType: 'breakfast' | 'lunch' | 'dinner';
+      imageUrl: string;
+      budgetMin: number;
+      budgetMax: number;
+      allergens: string[];
+      notes?: string;
+    }> = [
+      // Thai
+      { title: 'Thai Jok (Rice Porridge)', cuisine: 'Thai', mealType: 'breakfast', imageUrl: this.imageById('1516684981049-7b3f9b5f52c7'), budgetMin: 45, budgetMax: 80, allergens: [] },
+      { title: 'Pad Thai', cuisine: 'Thai', mealType: 'lunch', imageUrl: this.imageById('1559847844-5315695daece'), budgetMin: 70, budgetMax: 120, allergens: ['peanut','shrimp','egg'] },
+      { title: 'Tom Yum Goong', cuisine: 'Thai', mealType: 'dinner', imageUrl: this.imageById('1578662996442-48f60103fc96'), budgetMin: 100, budgetMax: 160, allergens: ['shrimp'] },
+      { title: 'Green Curry Chicken', cuisine: 'Thai', mealType: 'dinner', imageUrl: this.imageById('1586190848861-99aa4a171e90'), budgetMin: 100, budgetMax: 170, allergens: ['dairy'] },
+
+      // Japanese
+      { title: 'Japanese Breakfast Set', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: this.imageById('1567620905732-2d1ec7ab7445'), budgetMin: 120, budgetMax: 180, allergens: ['fish','soy','egg'] },
+      { title: 'Salmon Sushi Set', cuisine: 'Japanese', mealType: 'lunch', imageUrl: this.imageById('1563379091339-03246963d18c'), budgetMin: 180, budgetMax: 320, allergens: ['fish','soy'] },
+      { title: 'Tonkotsu Ramen', cuisine: 'Japanese', mealType: 'dinner', imageUrl: this.imageById('1555939594-58d7cb561ad1'), budgetMin: 160, budgetMax: 280, allergens: ['gluten','egg','soy'] },
+      { title: 'Tempura Bento', cuisine: 'Japanese', mealType: 'lunch', imageUrl: this.imageById('1571091718761-18b5b1457add'), budgetMin: 150, budgetMax: 260, allergens: ['egg','gluten','soy'] },
+
+      // Chinese
+      { title: 'Chinese Congee', cuisine: 'Chinese', mealType: 'breakfast', imageUrl: this.imageById('1572802419224-296b0aeee0d9'), budgetMin: 50, budgetMax: 90, allergens: [] },
+      { title: 'Yangzhou Fried Rice', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1565299624946-b28f40a0ca4b'), budgetMin: 80, budgetMax: 140, allergens: ['egg'] },
+      { title: 'Kung Pao Chicken', cuisine: 'Chinese', mealType: 'dinner', imageUrl: this.imageById('1574484284002-8dcaaaeaf4a4'), budgetMin: 120, budgetMax: 200, allergens: ['peanut','soy'] },
+      { title: 'Dim Sum Assortment', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1565299543927-795dd21bf5b2'), budgetMin: 140, budgetMax: 240, allergens: ['gluten','soy','egg','shrimp'] },
+
+      // Korean
+      { title: 'Korean Egg Toast', cuisine: 'Korean', mealType: 'breakfast', imageUrl: this.imageById('1572802419224-296b0aeee0d9'), budgetMin: 70, budgetMax: 110, allergens: ['egg','dairy','gluten'] },
+      { title: 'Bibimbap', cuisine: 'Korean', mealType: 'lunch', imageUrl: this.imageById('1579952363873-27d3bfad9c0d'), budgetMin: 130, budgetMax: 220, allergens: ['egg','soy'] },
+      { title: 'Korean BBQ Set', cuisine: 'Korean', mealType: 'dinner', imageUrl: this.imageById('1586190848861-99aa4a171e90'), budgetMin: 220, budgetMax: 450, allergens: ['soy'] },
+      { title: 'Kimchi Jjigae', cuisine: 'Korean', mealType: 'dinner', imageUrl: this.imageById('1578662996442-48f60103fc96'), budgetMin: 120, budgetMax: 190, allergens: ['soy','fish'] },
+
+      // Western
+      { title: 'Pancakes with Berries', cuisine: 'Western', mealType: 'breakfast', imageUrl: this.imageById('1567620905732-2d1ec7ab7445'), budgetMin: 120, budgetMax: 200, allergens: ['egg','dairy','gluten'] },
+      { title: 'Margherita Pizza', cuisine: 'Western', mealType: 'lunch', imageUrl: this.imageById('1565299624946-b28f40a0ca4b'), budgetMin: 150, budgetMax: 260, allergens: ['dairy','gluten'] },
+      { title: 'Classic Cheeseburger', cuisine: 'Western', mealType: 'dinner', imageUrl: this.imageById('1571091718761-18b5b1457add'), budgetMin: 150, budgetMax: 240, allergens: ['gluten','dairy'] },
+      { title: 'Spaghetti Carbonara', cuisine: 'Western', mealType: 'dinner', imageUrl: this.imageById('1555939594-58d7cb561ad1'), budgetMin: 140, budgetMax: 230, allergens: ['egg','dairy','gluten'] },
+    ];
+
+    // Expand set with small variants to reach a richer dataset
     const menus: any[] = [];
+    const variants = ['Signature', 'Deluxe', 'Premium', "Chef's Special"];
+    curated.forEach((base, idx) => {
+      menus.push({ ...base, isActive: true, notes: base.notes || `Authentic ${base.cuisine} ${base.mealType}` });
+      const variant = variants[idx % variants.length];
+      menus.push({
+        ...base,
+        title: `${base.title} ${variant}`,
+        budgetMin: Math.max(40, base.budgetMin - 10),
+        budgetMax: base.budgetMax + 20,
+        isActive: true,
+        notes: `${variant} edition`,
+      });
+    });
 
-    // Generate 20 menus per meal type (60 total)
-    for (const mealType of mealTypes) {
-      for (let i = 0; i < 20; i++) {
-        const cuisine = cuisines[Math.floor(Math.random() * cuisines.length)];
-        const menuAllergens = allergens
-          .sort(() => 0.5 - Math.random())
-          .slice(0, Math.floor(Math.random() * 3));
-
-        const title = this.generateMenuTitle(mealType, cuisine, i);
-        const menu = {
-          title: title,
-          mealType,
-          cuisine,
-          isActive: true,
-          notes: `Delicious ${cuisine} ${mealType} option`,
-          allergens: menuAllergens,
-          budgetMin: Math.floor(Math.random() * 20) + 40, // 40-60
-          budgetMax: Math.floor(Math.random() * 60) + 80, // 80-140
-          imageUrl: this.getRandomFoodImage(mealType, cuisine, title),
-        };
-
-        menus.push(menu);
-      }
-    }
-
-    // Insert menus in batches
-    for (const menu of menus) {
-      await this.menuModel.findOneAndUpdate(
-        { title: menu.title, mealType: menu.mealType },
-        menu,
-        { upsert: true, new: true },
-      );
-    }
+    await this.menuModel.insertMany(menus);
 
     console.log('✅ Menus seeded successfully');
   }
@@ -209,15 +232,17 @@ export class SeedService {
   }
 
   private getRandomFoodImage(mealType: string, cuisine: string, title: string): string {
-    // Get specific image based on menu title and cuisine
-    const width = 400;
-    const height = 300;
-    
-    // Map menu titles to specific food images
-    const imageMap = this.getFoodImageMap(mealType, cuisine, title);
-    const photoId = imageMap[Math.floor(Math.random() * imageMap.length)];
-    
-    return `https://images.unsplash.com/photo-${photoId}?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=${width}&h=${height}&q=80`;
+    // Prefer exact mapping when available
+    const width = 800;
+    const height = 600;
+    const q = encodeURIComponent(`${title} ${cuisine} ${mealType} food`);
+    return `https://source.unsplash.com/${width}x${height}/?${q}&${Date.now()}`;
+  }
+
+  private imageById(photoId: string): string {
+    const width = 800;
+    const height = 600;
+    return `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&w=${width}&h=${height}&q=85`;
   }
 
   private getFoodImageMap(mealType: string, cuisine: string, title: string): string[] {
