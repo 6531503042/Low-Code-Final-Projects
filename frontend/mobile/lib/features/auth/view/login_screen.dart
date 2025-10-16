@@ -240,32 +240,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 
                 const SizedBox(height: 24),
                 
-                // Demo credentials info
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Demo Credentials',
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Admin: admin@gmail.com / admin123',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        Text(
-                          'User: user@gmail.com / user123',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

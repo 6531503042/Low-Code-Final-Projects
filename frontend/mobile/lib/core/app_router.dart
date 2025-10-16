@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../features/auth/providers/auth_providers.dart';
 import '../features/auth/view/splash_gate.dart';
 import '../features/auth/view/login_screen.dart';
-import '../features/suggestions/view/dashboard_screen.dart';
+import '../features/suggestions/view/dashboard_screen_premium.dart';
 import '../features/preferences/view/preferences_screen.dart';
 import '../features/schedules/view/schedule_screen.dart';
 
@@ -65,7 +65,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.dashboard,
         name: 'dashboard',
-        builder: (context, state) => const DashboardScreen(),
+        builder: (context, state) => const DashboardScreenPremium(),
       ),
 
       // Preferences screen

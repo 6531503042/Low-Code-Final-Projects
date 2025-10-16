@@ -167,6 +167,11 @@ class ScheduleStateNotifier extends StateNotifier<AsyncValue<Schedule?>> {
     }
   }
 
+  /// Fetch schedule (alias for loadSchedule)
+  Future<void> fetchSchedule() async {
+    await loadSchedule();
+  }
+
   /// Refresh schedule
   Future<void> refresh() async {
     await loadSchedule();

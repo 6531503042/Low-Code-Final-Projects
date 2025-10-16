@@ -37,6 +37,11 @@ class PreferencesStateNotifier extends StateNotifier<AsyncValue<Preferences?>> {
     }
   }
 
+  /// Fetch preferences (alias for loadPreferences)
+  Future<void> fetchPreferences() async {
+    await loadPreferences();
+  }
+
   /// Update preferences
   Future<void> updatePreferences(Preferences preferences) async {
     state = const AsyncValue.loading();
