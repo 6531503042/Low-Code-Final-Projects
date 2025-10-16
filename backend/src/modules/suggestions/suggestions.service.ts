@@ -135,15 +135,23 @@ export class SuggestionsService {
       return candidates[Math.floor(Math.random() * candidates.length)];
     }
 
-    // Fallback to single random meal
-    return preferences
-      ? this.menusService.pickRandomMealWithPreferences(mealType, {
+    // Fallbacks to ensure we always return something when data exists
+    const withPrefs = preferences
+      ? await this.menusService.pickRandomMealWithPreferences(mealType, {
           cuisines: preferences.cuisines,
           allergensAvoid: preferences.allergensAvoid,
           budgetMin: preferences.budgetMin,
           budgetMax: preferences.budgetMax,
         })
-      : this.menusService.pickRandomMeal(mealType);
+      : null;
+
+    if (withPrefs) return withPrefs;
+
+    const any = await this.menusService.pickRandomMeal(mealType);
+    if (any) return any;
+
+    // very last resort
+    return this.menusService.pickAny(mealType);
   }
 
   private getCacheKey(mealType: string, preferences?: any): string {

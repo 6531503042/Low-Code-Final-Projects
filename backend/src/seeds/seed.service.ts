@@ -100,6 +100,41 @@ export class SeedService {
       { title: 'Margherita Pizza', cuisine: 'Western', mealType: 'lunch', imageUrl: this.imageById('1565299624946-b28f40a0ca4b'), budgetMin: 150, budgetMax: 260, allergens: ['dairy','gluten'] },
       { title: 'Classic Cheeseburger', cuisine: 'Western', mealType: 'dinner', imageUrl: this.imageById('1571091718761-18b5b1457add'), budgetMin: 150, budgetMax: 240, allergens: ['gluten','dairy'] },
       { title: 'Spaghetti Carbonara', cuisine: 'Western', mealType: 'dinner', imageUrl: this.imageById('1555939594-58d7cb561ad1'), budgetMin: 140, budgetMax: 230, allergens: ['egg','dairy','gluten'] },
+
+      // Vietnamese
+      { title: 'Pho Bo (Beef Pho)', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: this.imageById('1512054507848-54b8c4a4364b'), budgetMin: 120, budgetMax: 220, allergens: [] },
+      { title: 'Banh Mi', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: this.imageById('1540151812223-c30f7698f5f9'), budgetMin: 80, budgetMax: 140, allergens: ['gluten'] },
+      { title: 'Bun Cha', cuisine: 'Vietnamese', mealType: 'dinner', imageUrl: this.imageById('1526318472351-c75fcf070305'), budgetMin: 130, budgetMax: 220, allergens: [] },
+
+      // Italian
+      { title: 'Lasagna', cuisine: 'Italian', mealType: 'dinner', imageUrl: this.imageById('1543353071-873f17a7a088'), budgetMin: 180, budgetMax: 300, allergens: ['gluten','dairy'] },
+      { title: 'Risotto ai Funghi', cuisine: 'Italian', mealType: 'dinner', imageUrl: this.imageById('1511690656952-34342bb7c2f2'), budgetMin: 220, budgetMax: 360, allergens: ['dairy'] },
+      { title: 'Caprese Salad', cuisine: 'Italian', mealType: 'lunch', imageUrl: this.imageById('1505575972945-283b8a31b751'), budgetMin: 120, budgetMax: 220, allergens: ['dairy'] },
+
+      // Indian
+      { title: 'Butter Chicken', cuisine: 'Indian', mealType: 'dinner', imageUrl: this.imageById('1544025162-d76694265947'), budgetMin: 160, budgetMax: 260, allergens: ['dairy'] },
+      { title: 'Chicken Biryani', cuisine: 'Indian', mealType: 'lunch', imageUrl: this.imageById('1604908177522-040a9042f6e5'), budgetMin: 140, budgetMax: 240, allergens: [] },
+      { title: 'Masala Dosa', cuisine: 'Indian', mealType: 'breakfast', imageUrl: this.imageById('1567168544254-30a6a96bd3d5'), budgetMin: 90, budgetMax: 150, allergens: ['gluten'] },
+
+      // Mexican
+      { title: 'Tacos al Pastor', cuisine: 'Mexican', mealType: 'lunch', imageUrl: this.imageById('1552332386-f8dd00dc2f85'), budgetMin: 120, budgetMax: 200, allergens: [] },
+      { title: 'Chicken Quesadilla', cuisine: 'Mexican', mealType: 'dinner', imageUrl: this.imageById('1604152135912-04a7560dc5c3'), budgetMin: 120, budgetMax: 220, allergens: ['gluten','dairy'] },
+      { title: 'Burrito Bowl', cuisine: 'Mexican', mealType: 'lunch', imageUrl: this.imageById('1512621776951-a57141f2eefd'), budgetMin: 140, budgetMax: 230, allergens: ['dairy'] },
+
+      // Chinese (more dishes)
+      { title: 'Mapo Tofu', cuisine: 'Chinese', mealType: 'dinner', imageUrl: this.imageById('1512058564366-18510be2db19'), budgetMin: 120, budgetMax: 210, allergens: ['soy'] },
+      { title: 'Beef Chow Fun', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1552611052-33d0d9f1a06f'), budgetMin: 140, budgetMax: 230, allergens: ['gluten','soy'] },
+      { title: 'Wonton Noodle Soup', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1512621776951-a57141f2eefd'), budgetMin: 120, budgetMax: 200, allergens: ['gluten','egg','shrimp'] },
+
+      // Japanese (more dishes)
+      { title: 'Gyudon', cuisine: 'Japanese', mealType: 'lunch', imageUrl: this.imageById('1542528180-1c2f2b6b8b4d'), budgetMin: 160, budgetMax: 260, allergens: ['soy','egg'] },
+      { title: 'Chicken Katsu Curry', cuisine: 'Japanese', mealType: 'dinner', imageUrl: this.imageById('1511452885600-a3d2c9148a31'), budgetMin: 180, budgetMax: 300, allergens: ['gluten','egg'] },
+      { title: 'Onigiri Set', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: this.imageById('1490645935967-10de6ba17061'), budgetMin: 80, budgetMax: 140, allergens: [] },
+
+      // Thai (more dishes)
+      { title: 'Khao Man Gai (Hainanese Chicken Rice)', cuisine: 'Thai', mealType: 'lunch', imageUrl: this.imageById('1526318472351-c75fcf070305'), budgetMin: 60, budgetMax: 120, allergens: [] },
+      { title: 'Khao Krapow Moo', cuisine: 'Thai', mealType: 'lunch', imageUrl: this.imageById('1544025162-d76694265947'), budgetMin: 60, budgetMax: 120, allergens: [] },
+      { title: 'Mango Sticky Rice', cuisine: 'Thai', mealType: 'dinner', imageUrl: this.imageById('1490645935967-10de6ba17061'), budgetMin: 70, budgetMax: 140, allergens: [] },
     ];
 
     // Expand set with small variants to reach a richer dataset

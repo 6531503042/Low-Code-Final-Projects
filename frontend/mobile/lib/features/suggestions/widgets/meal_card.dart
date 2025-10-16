@@ -314,10 +314,15 @@ class _PremiumMealCardState extends State<PremiumMealCard>
   Widget _buildEmptyState() {
     final gradient = AppThemePremium.getMealGradient(widget.mealType.apiValue);
     
-    return Container(
-      padding: const EdgeInsets.all(AppThemePremium.spacing6),
-      child: Column(
-        children: [
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.all(AppThemePremium.spacing6),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -334,13 +339,16 @@ class _PremiumMealCardState extends State<PremiumMealCard>
           Text(
             'No ${widget.mealType.displayName.toLowerCase()} yet',
             style: AppThemePremium.h3,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: AppThemePremium.spacing1),
           Text(
             'Tap reroll to get a suggestion',
             style: AppThemePremium.body2,
+            textAlign: TextAlign.center,
           ),
-        ],
+          ],
+        ),
       ),
     );
   }

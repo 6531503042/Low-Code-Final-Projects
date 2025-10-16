@@ -86,6 +86,12 @@ export class MenusService {
     return result[0] || null;
   }
 
+  // Conservative fallback in case aggregation returns empty
+  async pickAny(mealType: 'breakfast' | 'lunch' | 'dinner'): Promise<Menu | null> {
+    const doc = await this.menuModel.findOne({ isActive: true, mealType }).sort({ createdAt: -1 }).lean();
+    return (doc as unknown as Menu) || null;
+  }
+
   async pickRandomMealWithPreferences(
     mealType: 'breakfast' | 'lunch' | 'dinner',
     preferences?: {
