@@ -431,7 +431,8 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF667eea),
+              backgroundColor: const Color(0xFF4A5568),
+              foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             child: const Text('Save'),

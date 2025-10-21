@@ -60,7 +60,7 @@ export class SeedService {
     // Clear existing to avoid stale/random images
     await this.menuModel.deleteMany({});
 
-    // Curated menus with deterministic Unsplash photo IDs to match dishes exactly
+    // Curated menus with proper food images that match the dishes
     const curated: Array<{
       title: string;
       cuisine: string;
@@ -71,89 +71,121 @@ export class SeedService {
       allergens: string[];
       notes?: string;
     }> = [
-      // Thai
-      { title: 'Thai Jok (Rice Porridge)', cuisine: 'Thai', mealType: 'breakfast', imageUrl: this.imageById('1516684981049-7b3f9b5f52c7'), budgetMin: 45, budgetMax: 80, allergens: [] },
-      { title: 'Pad Thai', cuisine: 'Thai', mealType: 'lunch', imageUrl: this.imageById('1559847844-5315695daece'), budgetMin: 70, budgetMax: 120, allergens: ['peanut','shrimp','egg'] },
-      { title: 'Tom Yum Goong', cuisine: 'Thai', mealType: 'dinner', imageUrl: this.imageById('1578662996442-48f60103fc96'), budgetMin: 100, budgetMax: 160, allergens: ['shrimp'] },
-      { title: 'Green Curry Chicken', cuisine: 'Thai', mealType: 'dinner', imageUrl: this.imageById('1586190848861-99aa4a171e90'), budgetMin: 100, budgetMax: 170, allergens: ['dairy'] },
+      // ===== THAI CUISINE (10 menus) =====
+      { title: 'Royal Thai Congee', cuisine: 'Thai', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 60, budgetMax: 110, allergens: [] },
+      { title: 'Thai Omelet Perfection', cuisine: 'Thai', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 50, budgetMax: 90, allergens: ['egg'] },
+      { title: 'Traditional Jok', cuisine: 'Thai', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 55, budgetMax: 95, allergens: [] },
+      { title: 'Pad Thai Royale', cuisine: 'Thai', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1559847844-5315695daece?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 90, budgetMax: 150, allergens: ['peanut','shrimp','egg'] },
+      { title: 'Basil Chicken Paradise', cuisine: 'Thai', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 85, budgetMax: 140, allergens: ['soy'] },
+      { title: 'Thai Fried Rice Supreme', cuisine: 'Thai', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 70, budgetMax: 120, allergens: ['egg'] },
+      { title: 'Green Curry Excellence', cuisine: 'Thai', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 95, budgetMax: 160, allergens: ['dairy'] },
+      { title: 'Royal Massaman Curry', cuisine: 'Thai', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 140, budgetMax: 230, allergens: ['peanut','dairy'] },
+      { title: 'Tom Yum Seafood Symphony', cuisine: 'Thai', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 120, budgetMax: 200, allergens: ['shrimp'] },
+      { title: 'Panang Curry Deluxe', cuisine: 'Thai', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 135, budgetMax: 220, allergens: ['peanut','dairy'] },
 
-      // Japanese
-      { title: 'Japanese Breakfast Set', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: this.imageById('1567620905732-2d1ec7ab7445'), budgetMin: 120, budgetMax: 180, allergens: ['fish','soy','egg'] },
-      { title: 'Salmon Sushi Set', cuisine: 'Japanese', mealType: 'lunch', imageUrl: this.imageById('1563379091339-03246963d18c'), budgetMin: 180, budgetMax: 320, allergens: ['fish','soy'] },
-      { title: 'Tonkotsu Ramen', cuisine: 'Japanese', mealType: 'dinner', imageUrl: this.imageById('1555939594-58d7cb561ad1'), budgetMin: 160, budgetMax: 280, allergens: ['gluten','egg','soy'] },
-      { title: 'Tempura Bento', cuisine: 'Japanese', mealType: 'lunch', imageUrl: this.imageById('1571091718761-18b5b1457add'), budgetMin: 150, budgetMax: 260, allergens: ['egg','gluten','soy'] },
+      // ===== JAPANESE CUISINE (10 menus) =====
+      { title: 'Traditional Zen Breakfast', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 120, budgetMax: 200, allergens: ['fish','soy','egg'] },
+      { title: 'Tamagoyaki Delight', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 80, budgetMax: 140, allergens: ['egg','soy'] },
+      { title: 'Miso Morning Glory', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 60, budgetMax: 100, allergens: ['soy'] },
+      { title: 'Premium Sushi Collection', cuisine: 'Japanese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 200, budgetMax: 350, allergens: ['fish','soy'] },
+      { title: 'Tempura Deluxe Box', cuisine: 'Japanese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1571091718761-18b5b1457add?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 170, budgetMax: 280, allergens: ['egg','gluten','soy'] },
+      { title: 'Udon Noodle Symphony', cuisine: 'Japanese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 145, budgetMax: 240, allergens: ['gluten','soy'] },
+      { title: 'Katsu Curry Masterpiece', cuisine: 'Japanese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 175, budgetMax: 290, allergens: ['gluten','dairy'] },
+      { title: 'Tonkotsu Ramen Perfection', cuisine: 'Japanese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 180, budgetMax: 300, allergens: ['gluten','egg','soy'] },
+      { title: 'Sashimi Grand Platter', cuisine: 'Japanese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 280, budgetMax: 480, allergens: ['fish'] },
+      { title: 'Unagi Don Royal', cuisine: 'Japanese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 240, budgetMax: 420, allergens: ['fish','soy'] },
 
-      // Chinese
-      { title: 'Chinese Congee', cuisine: 'Chinese', mealType: 'breakfast', imageUrl: this.imageById('1572802419224-296b0aeee0d9'), budgetMin: 50, budgetMax: 90, allergens: [] },
-      { title: 'Yangzhou Fried Rice', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1565299624946-b28f40a0ca4b'), budgetMin: 80, budgetMax: 140, allergens: ['egg'] },
-      { title: 'Kung Pao Chicken', cuisine: 'Chinese', mealType: 'dinner', imageUrl: this.imageById('1574484284002-8dcaaaeaf4a4'), budgetMin: 120, budgetMax: 200, allergens: ['peanut','soy'] },
-      { title: 'Dim Sum Assortment', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1565299543927-795dd21bf5b2'), budgetMin: 140, budgetMax: 240, allergens: ['gluten','soy','egg','shrimp'] },
+      // ===== KOREAN CUISINE (10 menus) =====
+      { title: 'Korean Fusion Toast', cuisine: 'Korean', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 80, budgetMax: 130, allergens: ['egg','dairy','gluten'] },
+      { title: 'Kimchi Jjigae Morning', cuisine: 'Korean', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 90, budgetMax: 140, allergens: ['soy','fish'] },
+      { title: 'Juk Harmony Bowl', cuisine: 'Korean', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 75, budgetMax: 125, allergens: [] },
+      { title: 'Bibimbap Perfection', cuisine: 'Korean', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 140, budgetMax: 230, allergens: ['egg','soy'] },
+      { title: 'Bulgogi Premium Bowl', cuisine: 'Korean', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1606850780554-b55fb84dc5c5?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 160, budgetMax: 260, allergens: ['soy'] },
+      { title: 'Japchae Glass Noodles', cuisine: 'Korean', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 125, budgetMax: 205, allergens: ['soy'] },
+      { title: 'Sundubu Jjigae Delight', cuisine: 'Korean', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 135, budgetMax: 215, allergens: ['soy','shrimp'] },
+      { title: 'Korean BBQ Premium Set', cuisine: 'Korean', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1606850780554-b55fb84dc5c5?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 250, budgetMax: 480, allergens: ['soy'] },
+      { title: 'Dakgalbi Spicy Excellence', cuisine: 'Korean', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1606850780554-b55fb84dc5c5?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 195, budgetMax: 320, allergens: ['soy'] },
+      { title: 'Bossam Pork Wraps', cuisine: 'Korean', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1606850780554-b55fb84dc5c5?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 220, budgetMax: 400, allergens: [] },
 
-      // Korean
-      { title: 'Korean Egg Toast', cuisine: 'Korean', mealType: 'breakfast', imageUrl: this.imageById('1572802419224-296b0aeee0d9'), budgetMin: 70, budgetMax: 110, allergens: ['egg','dairy','gluten'] },
-      { title: 'Bibimbap', cuisine: 'Korean', mealType: 'lunch', imageUrl: this.imageById('1579952363873-27d3bfad9c0d'), budgetMin: 130, budgetMax: 220, allergens: ['egg','soy'] },
-      { title: 'Korean BBQ Set', cuisine: 'Korean', mealType: 'dinner', imageUrl: this.imageById('1586190848861-99aa4a171e90'), budgetMin: 220, budgetMax: 450, allergens: ['soy'] },
-      { title: 'Kimchi Jjigae', cuisine: 'Korean', mealType: 'dinner', imageUrl: this.imageById('1578662996442-48f60103fc96'), budgetMin: 120, budgetMax: 190, allergens: ['soy','fish'] },
+      // ===== WESTERN CUISINE (10 menus) =====
+      { title: 'Artisan Avocado Toast', cuisine: 'Western', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 120, budgetMax: 180, allergens: ['gluten'] },
+      { title: 'Berry Bliss Pancakes', cuisine: 'Western', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 140, budgetMax: 220, allergens: ['egg','dairy','gluten'] },
+      { title: 'Eggs Benedict Royal', cuisine: 'Western', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 150, budgetMax: 250, allergens: ['egg','dairy','gluten'] },
+      { title: 'Margherita Perfection', cuisine: 'Western', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 170, budgetMax: 280, allergens: ['dairy','gluten'] },
+      { title: 'Club Sandwich Elite', cuisine: 'Western', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 130, budgetMax: 210, allergens: ['gluten','egg','dairy'] },
+      { title: 'Caesar Salad Premium', cuisine: 'Western', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 145, budgetMax: 230, allergens: ['dairy','fish'] },
+      { title: 'Fish & Chips Classic', cuisine: 'Western', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1571091718761-18b5b1457add?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 155, budgetMax: 250, allergens: ['fish','gluten'] },
+      { title: 'Angus Steak Perfection', cuisine: 'Western', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 300, budgetMax: 500, allergens: [] },
+      { title: 'Truffle Carbonara Luxe', cuisine: 'Western', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 180, budgetMax: 280, allergens: ['egg','dairy','gluten'] },
+      { title: 'Grilled Salmon Supreme', cuisine: 'Western', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 220, budgetMax: 380, allergens: ['fish'] },
 
-      // Western
-      { title: 'Pancakes with Berries', cuisine: 'Western', mealType: 'breakfast', imageUrl: this.imageById('1567620905732-2d1ec7ab7445'), budgetMin: 120, budgetMax: 200, allergens: ['egg','dairy','gluten'] },
-      { title: 'Margherita Pizza', cuisine: 'Western', mealType: 'lunch', imageUrl: this.imageById('1565299624946-b28f40a0ca4b'), budgetMin: 150, budgetMax: 260, allergens: ['dairy','gluten'] },
-      { title: 'Classic Cheeseburger', cuisine: 'Western', mealType: 'dinner', imageUrl: this.imageById('1571091718761-18b5b1457add'), budgetMin: 150, budgetMax: 240, allergens: ['gluten','dairy'] },
-      { title: 'Spaghetti Carbonara', cuisine: 'Western', mealType: 'dinner', imageUrl: this.imageById('1555939594-58d7cb561ad1'), budgetMin: 140, budgetMax: 230, allergens: ['egg','dairy','gluten'] },
+      // ===== VIETNAMESE CUISINE (10 menus) =====
+      { title: 'Pho Morning Glory', cuisine: 'Vietnamese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 100, budgetMax: 160, allergens: [] },
+      { title: 'Banh Mi Sunrise', cuisine: 'Vietnamese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1540151812223-c30f7698f5f9?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 70, budgetMax: 120, allergens: ['gluten'] },
+      { title: 'Xoi Sticky Rice Delight', cuisine: 'Vietnamese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 65, budgetMax: 110, allergens: [] },
+      { title: 'Pho Bo Signature', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1512054507848-54b8c4a4364b?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 130, budgetMax: 220, allergens: [] },
+      { title: 'Bun Cha Hanoi Style', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 125, budgetMax: 210, allergens: [] },
+      { title: 'Banh Xeo Crispy Crepe', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 110, budgetMax: 180, allergens: ['gluten','shrimp'] },
+      { title: 'Com Tam Broken Rice', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 95, budgetMax: 160, allergens: [] },
+      { title: 'Pho Ga Chicken Noodle', cuisine: 'Vietnamese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1512054507848-54b8c4a4364b?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 120, budgetMax: 200, allergens: [] },
+      { title: 'Bun Bo Hue Royale', cuisine: 'Vietnamese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 140, budgetMax: 230, allergens: [] },
+      { title: 'Cao Lau Premium', cuisine: 'Vietnamese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 135, budgetMax: 220, allergens: ['gluten'] },
 
-      // Vietnamese
-      { title: 'Pho Bo (Beef Pho)', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: this.imageById('1512054507848-54b8c4a4364b'), budgetMin: 120, budgetMax: 220, allergens: [] },
-      { title: 'Banh Mi', cuisine: 'Vietnamese', mealType: 'lunch', imageUrl: this.imageById('1540151812223-c30f7698f5f9'), budgetMin: 80, budgetMax: 140, allergens: ['gluten'] },
-      { title: 'Bun Cha', cuisine: 'Vietnamese', mealType: 'dinner', imageUrl: this.imageById('1526318472351-c75fcf070305'), budgetMin: 130, budgetMax: 220, allergens: [] },
+      // ===== CHINESE CUISINE (10 menus) =====
+      { title: 'Dim Sum Morning Glory', cuisine: 'Chinese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 85, budgetMax: 145, allergens: ['gluten','soy'] },
+      { title: 'Congee Royale', cuisine: 'Chinese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 65, budgetMax: 110, allergens: [] },
+      { title: 'Soy Milk & You Tiao', cuisine: 'Chinese', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 50, budgetMax: 90, allergens: ['soy','gluten'] },
+      { title: 'Imperial Dim Sum Tower', cuisine: 'Chinese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 160, budgetMax: 260, allergens: ['gluten','soy','egg','shrimp'] },
+      { title: 'Yangzhou Fried Rice', cuisine: 'Chinese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 95, budgetMax: 155, allergens: ['egg'] },
+      { title: 'Chow Mein Excellence', cuisine: 'Chinese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 105, budgetMax: 175, allergens: ['gluten','soy'] },
+      { title: 'Mapo Tofu Supreme', cuisine: 'Chinese', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 115, budgetMax: 190, allergens: ['soy'] },
+      { title: 'Peking Duck Royale', cuisine: 'Chinese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 320, budgetMax: 620, allergens: ['gluten'] },
+      { title: 'Kung Pao Chicken Deluxe', cuisine: 'Chinese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 135, budgetMax: 215, allergens: ['peanut','soy'] },
+      { title: 'Sweet & Sour Pork Premium', cuisine: 'Chinese', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 125, budgetMax: 205, allergens: ['gluten'] },
 
-      // Italian
-      { title: 'Lasagna', cuisine: 'Italian', mealType: 'dinner', imageUrl: this.imageById('1543353071-873f17a7a088'), budgetMin: 180, budgetMax: 300, allergens: ['gluten','dairy'] },
-      { title: 'Risotto ai Funghi', cuisine: 'Italian', mealType: 'dinner', imageUrl: this.imageById('1511690656952-34342bb7c2f2'), budgetMin: 220, budgetMax: 360, allergens: ['dairy'] },
-      { title: 'Caprese Salad', cuisine: 'Italian', mealType: 'lunch', imageUrl: this.imageById('1505575972945-283b8a31b751'), budgetMin: 120, budgetMax: 220, allergens: ['dairy'] },
+      // ===== ITALIAN CUISINE (10 menus) =====
+      { title: 'Italian Breakfast Frittata', cuisine: 'Italian', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 110, budgetMax: 180, allergens: ['egg','dairy'] },
+      { title: 'Cornetto & Cappuccino', cuisine: 'Italian', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 95, budgetMax: 155, allergens: ['gluten','dairy'] },
+      { title: 'Focaccia Morning', cuisine: 'Italian', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1590534247854-2f0c4bf1e475?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 85, budgetMax: 140, allergens: ['gluten'] },
+      { title: 'Caprese Salad Classic', cuisine: 'Italian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1505575972945-283b8a31b751?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 135, budgetMax: 225, allergens: ['dairy'] },
+      { title: 'Margherita Pizza Perfection', cuisine: 'Italian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 180, budgetMax: 290, allergens: ['dairy','gluten'] },
+      { title: 'Penne Arrabbiata', cuisine: 'Italian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 155, budgetMax: 250, allergens: ['gluten'] },
+      { title: 'Minestrone Soup Supreme', cuisine: 'Italian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 125, budgetMax: 200, allergens: [] },
+      { title: 'Truffle Risotto Excellence', cuisine: 'Italian', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1476124369491-f51bb1d5585f?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 250, budgetMax: 400, allergens: ['dairy'] },
+      { title: 'Lasagna Bolognese Royale', cuisine: 'Italian', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 195, budgetMax: 320, allergens: ['gluten','dairy'] },
+      { title: 'Osso Buco Premium', cuisine: 'Italian', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 280, budgetMax: 480, allergens: [] },
 
-      // Indian
-      { title: 'Butter Chicken', cuisine: 'Indian', mealType: 'dinner', imageUrl: this.imageById('1544025162-d76694265947'), budgetMin: 160, budgetMax: 260, allergens: ['dairy'] },
-      { title: 'Chicken Biryani', cuisine: 'Indian', mealType: 'lunch', imageUrl: this.imageById('1604908177522-040a9042f6e5'), budgetMin: 140, budgetMax: 240, allergens: [] },
-      { title: 'Masala Dosa', cuisine: 'Indian', mealType: 'breakfast', imageUrl: this.imageById('1567168544254-30a6a96bd3d5'), budgetMin: 90, budgetMax: 150, allergens: ['gluten'] },
+      // ===== INDIAN CUISINE (10 menus) =====
+      { title: 'Masala Dosa Supreme', cuisine: 'Indian', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567168544254-30a6a96bd3d5?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 100, budgetMax: 160, allergens: ['gluten'] },
+      { title: 'Idli Sambar Classic', cuisine: 'Indian', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 85, budgetMax: 140, allergens: [] },
+      { title: 'Poha Morning Delight', cuisine: 'Indian', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 75, budgetMax: 125, allergens: [] },
+      { title: 'Chicken Biryani Paradise', cuisine: 'Indian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1604908177522-040a9042f6e5?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 155, budgetMax: 255, allergens: [] },
+      { title: 'Tandoori Chicken Excellence', cuisine: 'Indian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 165, budgetMax: 270, allergens: ['dairy'] },
+      { title: 'Paneer Tikka Masala', cuisine: 'Indian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 145, budgetMax: 235, allergens: ['dairy'] },
+      { title: 'Dal Makhani Supreme', cuisine: 'Indian', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 125, budgetMax: 200, allergens: ['dairy'] },
+      { title: 'Butter Chicken Paradise', cuisine: 'Indian', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 170, budgetMax: 280, allergens: ['dairy'] },
+      { title: 'Rogan Josh Royal', cuisine: 'Indian', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 185, budgetMax: 305, allergens: ['dairy'] },
+      { title: 'Lamb Vindaloo Deluxe', cuisine: 'Indian', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 200, budgetMax: 340, allergens: [] },
 
-      // Mexican
-      { title: 'Tacos al Pastor', cuisine: 'Mexican', mealType: 'lunch', imageUrl: this.imageById('1552332386-f8dd00dc2f85'), budgetMin: 120, budgetMax: 200, allergens: [] },
-      { title: 'Chicken Quesadilla', cuisine: 'Mexican', mealType: 'dinner', imageUrl: this.imageById('1604152135912-04a7560dc5c3'), budgetMin: 120, budgetMax: 220, allergens: ['gluten','dairy'] },
-      { title: 'Burrito Bowl', cuisine: 'Mexican', mealType: 'lunch', imageUrl: this.imageById('1512621776951-a57141f2eefd'), budgetMin: 140, budgetMax: 230, allergens: ['dairy'] },
-
-      // Chinese (more dishes)
-      { title: 'Mapo Tofu', cuisine: 'Chinese', mealType: 'dinner', imageUrl: this.imageById('1512058564366-18510be2db19'), budgetMin: 120, budgetMax: 210, allergens: ['soy'] },
-      { title: 'Beef Chow Fun', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1552611052-33d0d9f1a06f'), budgetMin: 140, budgetMax: 230, allergens: ['gluten','soy'] },
-      { title: 'Wonton Noodle Soup', cuisine: 'Chinese', mealType: 'lunch', imageUrl: this.imageById('1512621776951-a57141f2eefd'), budgetMin: 120, budgetMax: 200, allergens: ['gluten','egg','shrimp'] },
-
-      // Japanese (more dishes)
-      { title: 'Gyudon', cuisine: 'Japanese', mealType: 'lunch', imageUrl: this.imageById('1542528180-1c2f2b6b8b4d'), budgetMin: 160, budgetMax: 260, allergens: ['soy','egg'] },
-      { title: 'Chicken Katsu Curry', cuisine: 'Japanese', mealType: 'dinner', imageUrl: this.imageById('1511452885600-a3d2c9148a31'), budgetMin: 180, budgetMax: 300, allergens: ['gluten','egg'] },
-      { title: 'Onigiri Set', cuisine: 'Japanese', mealType: 'breakfast', imageUrl: this.imageById('1490645935967-10de6ba17061'), budgetMin: 80, budgetMax: 140, allergens: [] },
-
-      // Thai (more dishes)
-      { title: 'Khao Man Gai (Hainanese Chicken Rice)', cuisine: 'Thai', mealType: 'lunch', imageUrl: this.imageById('1526318472351-c75fcf070305'), budgetMin: 60, budgetMax: 120, allergens: [] },
-      { title: 'Khao Krapow Moo', cuisine: 'Thai', mealType: 'lunch', imageUrl: this.imageById('1544025162-d76694265947'), budgetMin: 60, budgetMax: 120, allergens: [] },
-      { title: 'Mango Sticky Rice', cuisine: 'Thai', mealType: 'dinner', imageUrl: this.imageById('1490645935967-10de6ba17061'), budgetMin: 70, budgetMax: 140, allergens: [] },
+      // ===== MEXICAN CUISINE (10 menus) =====
+      { title: 'Chilaquiles Morning', cuisine: 'Mexican', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1612840666989-eb62e23ecaaf?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 95, budgetMax: 155, allergens: ['gluten','dairy'] },
+      { title: 'Huevos Rancheros Classic', cuisine: 'Mexican', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 105, budgetMax: 170, allergens: ['egg'] },
+      { title: 'Breakfast Burrito Supreme', cuisine: 'Mexican', mealType: 'breakfast', imageUrl: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 110, budgetMax: 180, allergens: ['gluten','egg','dairy'] },
+      { title: 'Tacos al Pastor Royale', cuisine: 'Mexican', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 135, budgetMax: 215, allergens: [] },
+      { title: 'Burrito Bowl Paradise', cuisine: 'Mexican', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 155, budgetMax: 245, allergens: ['dairy'] },
+      { title: 'Quesadilla Deluxe', cuisine: 'Mexican', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1604152135912-04a7560dc5c3?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 125, budgetMax: 205, allergens: ['gluten','dairy'] },
+      { title: 'Torta Mexicana Premium', cuisine: 'Mexican', mealType: 'lunch', imageUrl: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 115, budgetMax: 190, allergens: ['gluten'] },
+      { title: 'Enchiladas Supremas', cuisine: 'Mexican', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1599974979061-15f88dc3a8d6?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 165, budgetMax: 270, allergens: ['gluten','dairy'] },
+      { title: 'Carne Asada Excellence', cuisine: 'Mexican', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 195, budgetMax: 325, allergens: [] },
+      { title: 'Mole Poblano Royale', cuisine: 'Mexican', mealType: 'dinner', imageUrl: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&h=600&q=85', budgetMin: 180, budgetMax: 295, allergens: ['peanut'] },
     ];
 
-    // Expand set with small variants to reach a richer dataset
-    const menus: any[] = [];
-    const variants = ['Signature', 'Deluxe', 'Premium', "Chef's Special"];
-    curated.forEach((base, idx) => {
-      menus.push({ ...base, isActive: true, notes: base.notes || `Authentic ${base.cuisine} ${base.mealType}` });
-      const variant = variants[idx % variants.length];
-      menus.push({
-        ...base,
-        title: `${base.title} ${variant}`,
-        budgetMin: Math.max(40, base.budgetMin - 10),
-        budgetMax: base.budgetMax + 20,
-        isActive: true,
-        notes: `${variant} edition`,
-      });
-    });
-
-    await this.menuModel.insertMany(menus);
+    // Insert all menus directly without variants
+    await this.menuModel.insertMany(curated.map(menu => ({ 
+      ...menu, 
+      isActive: true, 
+      notes: `Authentic ${menu.cuisine} ${menu.mealType}` 
+    })));
 
     console.log('✅ Menus seeded successfully');
   }

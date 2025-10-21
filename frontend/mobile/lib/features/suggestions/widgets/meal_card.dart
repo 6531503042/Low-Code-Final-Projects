@@ -59,7 +59,7 @@ class _PremiumMealCardState extends State<PremiumMealCard>
         position: _slideAnimation,
         child: Container(
           margin: const EdgeInsets.symmetric(
-            horizontal: AppThemePremium.spacing4,
+            horizontal: 0,
             vertical: AppThemePremium.spacing3,
           ),
           decoration: BoxDecoration(
@@ -152,7 +152,7 @@ class _PremiumMealCardState extends State<PremiumMealCard>
     if (widget.menuItem == null) return const SizedBox.shrink();
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: AppThemePremium.spacing4),
+      margin: const EdgeInsets.symmetric(horizontal: 0),
       child: AspectRatio(
         aspectRatio: 16 / 9,
         child: ClipRRect(
@@ -161,8 +161,27 @@ class _PremiumMealCardState extends State<PremiumMealCard>
             imageUrl: _getImageUrl(),
             fit: BoxFit.cover,
             fadeInDuration: const Duration(milliseconds: 300),
-            placeholder: (context, url) => _buildImagePlaceholder(),
-            errorWidget: (context, url, error) => _buildImagePlaceholder(),
+            httpHeaders: const {
+              'User-Agent': 'MeeRaiKin/1.0',
+            },
+            memCacheWidth: 800,
+            memCacheHeight: 600,
+            maxWidthDiskCache: 800,
+            maxHeightDiskCache: 600,
+            placeholder: (context, url) {
+              print('🔄 Loading image: $url');
+              return _buildImagePlaceholder();
+            },
+            errorWidget: (context, url, error) {
+              print('❌ Image load error for $url: $error');
+              // Try a different image source as fallback
+              return CachedNetworkImage(
+                imageUrl: 'https://picsum.photos/800/600?random=${DateTime.now().millisecondsSinceEpoch}',
+                fit: BoxFit.cover,
+                placeholder: (context, url) => _buildImagePlaceholder(),
+                errorWidget: (context, url, error) => _buildFallbackImage(),
+              );
+            },
           ),
         ),
       ),
@@ -180,19 +199,52 @@ class _PremiumMealCardState extends State<PremiumMealCard>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.restaurant,
-              size: 48,
-              color: Colors.white.withOpacity(0.8),
+            const CircularProgressIndicator(
+              color: Colors.white,
+              strokeWidth: 2,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             Text(
-              '🍽️ Delicious',
+              'Loading...',
               style: TextStyle(
                 color: Colors.white.withOpacity(0.9),
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFallbackImage() {
+    final gradient = AppThemePremium.getMealGradient(widget.mealType.apiValue);
+    
+    return Container(
+      decoration: BoxDecoration(
+        gradient: gradient,
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.restaurant_menu,
+              size: 48,
+              color: Colors.white.withOpacity(0.8),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              widget.menuItem?.title ?? 'Delicious',
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.9),
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
@@ -355,12 +407,14 @@ class _PremiumMealCardState extends State<PremiumMealCard>
 
   String _getImageUrl() {
     if (widget.menuItem?.imageUrl != null && widget.menuItem!.imageUrl!.isNotEmpty) {
+      print('🍽️ Using menu image: ${widget.menuItem!.imageUrl}');
       return widget.menuItem!.imageUrl!;
     }
+    print('⚠️ No imageUrl found for ${widget.menuItem?.title}, using fallback');
     final searchTerm = widget.menuItem!.cuisine.isNotEmpty
         ? '${widget.menuItem!.cuisine} ${widget.mealType.displayName} food'
         : '${widget.mealType.displayName} food';
-    return 'https://source.unsplash.com/800x600/?${Uri.encodeComponent(searchTerm)}&${DateTime.now().millisecondsSinceEpoch}';
+    return 'https://picsum.photos/800/600?random=${DateTime.now().millisecondsSinceEpoch}';
   }
 }
 

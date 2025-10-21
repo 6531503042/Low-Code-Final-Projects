@@ -10,7 +10,7 @@ import { Schedule, ScheduleSchema } from '../modules/schedules/schemas/schedule.
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/meerai'),
+    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb+srv://admin_lowcode:jFanlN2adlkdpBBV@cluster0.nrb09fk.mongodb.net/'),
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Menu.name, schema: MenuSchema },

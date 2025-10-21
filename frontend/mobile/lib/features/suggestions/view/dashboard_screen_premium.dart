@@ -18,9 +18,11 @@ class DashboardScreenPremium extends ConsumerStatefulWidget {
 }
 
 class _DashboardScreenPremiumState extends ConsumerState<DashboardScreenPremium>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController _headerController;
+  late AnimationController _rollController;
   late Animation<double> _headerAnimation;
+  late Animation<double> _rollAnimation;
   bool _isGenerating = false;
 
   @override
@@ -30,10 +32,21 @@ class _DashboardScreenPremiumState extends ConsumerState<DashboardScreenPremium>
       vsync: this,
       duration: const Duration(milliseconds: 800),
     );
+    _rollController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
     _headerAnimation = CurvedAnimation(
       parent: _headerController,
       curve: Curves.easeOut,
     );
+    _rollAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(
+      parent: _rollController,
+      curve: Curves.easeInOut,
+    ));
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ref.read(suggestionStateProvider.notifier).getToday();
@@ -44,11 +57,16 @@ class _DashboardScreenPremiumState extends ConsumerState<DashboardScreenPremium>
   @override
   void dispose() {
     _headerController.dispose();
+    _rollController.dispose();
     super.dispose();
   }
 
   void _showSnackBar(String message, {bool isError = false}) {
     if (!mounted) return;
+    
+    // Clear any existing SnackBars first
+    ScaffoldMessenger.of(context).clearSnackBars();
+    
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
@@ -56,6 +74,7 @@ class _DashboardScreenPremiumState extends ConsumerState<DashboardScreenPremium>
             ? AppThemePremium.error
             : AppThemePremium.success,
         behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 2), // Auto-dismiss after 2 seconds
         shape: RoundedRectangleBorder(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
@@ -309,22 +328,38 @@ class _DashboardScreenPremiumState extends ConsumerState<DashboardScreenPremium>
         ),
         const SizedBox(height: AppThemePremium.spacing2),
         
-        // Meal cards
-        PremiumMealCard(
-          menuItem: suggestion.breakfast,
-          mealType: MealType.breakfast,
-          onReroll: () => _handleReroll(MealType.breakfast),
-        ),
-        PremiumMealCard(
-          menuItem: suggestion.lunch,
-          mealType: MealType.lunch,
-          onReroll: () => _handleReroll(MealType.lunch),
-        ),
-        PremiumMealCard(
-          menuItem: suggestion.dinner,
-          mealType: MealType.dinner,
-          onReroll: () => _handleReroll(MealType.dinner),
-        ),
+            // Meal cards with subtle animation
+            AnimatedBuilder(
+              animation: _rollAnimation,
+              builder: (context, child) {
+                return Transform.scale(
+                  scale: 1.0 + (_rollAnimation.value * 0.01),
+                  child: child!,
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    PremiumMealCard(
+                      menuItem: suggestion.breakfast,
+                      mealType: MealType.breakfast,
+                      onReroll: () => _handleReroll(MealType.breakfast),
+                    ),
+                    PremiumMealCard(
+                      menuItem: suggestion.lunch,
+                      mealType: MealType.lunch,
+                      onReroll: () => _handleReroll(MealType.lunch),
+                    ),
+                    PremiumMealCard(
+                      menuItem: suggestion.dinner,
+                      mealType: MealType.dinner,
+                      onReroll: () => _handleReroll(MealType.dinner),
+                    ),
+                  ],
+                ),
+              ),
+            ),
       ],
     );
   }
@@ -454,13 +489,55 @@ class _DashboardScreenPremiumState extends ConsumerState<DashboardScreenPremium>
     setState(() => _isGenerating = true);
     HapticFeedback.heavyImpact();
     
+    // Start roll animation with proper completion handling
+    _rollController.forward().then((_) {
+      if (mounted) {
+        _rollController.reset();
+      }
+    }).catchError((error) {
+      // Safety fallback - ensure animation resets even if there's an error
+      if (mounted) {
+        _rollController.reset();
+      }
+    });
+    
+    // Safety timeout to force reset animation if it gets stuck
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      if (mounted && _rollController.isAnimating) {
+        _rollController.reset();
+      }
+    });
+    
     await ref.read(suggestionStateProvider.notifier).generateToday();
     _showSnackBar('🎉 New suggestions generated!');
     
-    setState(() => _isGenerating = false);
+    if (mounted) {
+      setState(() => _isGenerating = false);
+    }
   }
 
   Future<void> _handleReroll(MealType mealType) async {
+    HapticFeedback.mediumImpact();
+    
+    // Start roll animation with proper completion handling
+    _rollController.forward().then((_) {
+      if (mounted) {
+        _rollController.reset();
+      }
+    }).catchError((error) {
+      // Safety fallback - ensure animation resets even if there's an error
+      if (mounted) {
+        _rollController.reset();
+      }
+    });
+    
+    // Safety timeout to force reset animation if it gets stuck
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      if (mounted && _rollController.isAnimating) {
+        _rollController.reset();
+      }
+    });
+    
     await ref.read(suggestionStateProvider.notifier).reroll(mealType);
     _showSnackBar('✨ ${mealType.displayName} rerolled!');
   }
