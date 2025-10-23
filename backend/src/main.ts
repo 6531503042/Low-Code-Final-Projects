@@ -64,7 +64,7 @@ async function bootstrap() {
     SwaggerModule.setup('docs', app, document);
   }
 
-  const port = configService.get<number>('PORT', 3000);
+  const port = configService.get<number>('PORT', 8080);
   await app.listen(port, '0.0.0.0');
   
   console.log(`🚀 Application is running on: http://localhost:${port}`);
