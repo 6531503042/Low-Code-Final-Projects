@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "68efe2506d447c528458ea26"
+  },
+  "date": "2025-10-16",
+  "userId": {
+    "$oid": "68efd28b6d447c528458e9f4"
+  },
+  "__v": 0,
+  "breakfastMenuId": {
+    "$oid": "68f100d7d233abe9242a2432"
+  },
+  "createdAt": {
+    "$date": "2025-10-15T18:05:04.966Z"
+  },
+  "dinnerMenuId": {
+    "$oid": "68f100d7d233abe9242a2426"
+  },
+  "lunchMenuId": {
+    "$oid": "68eff85d6d447c528458eaf0"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:41:21.421Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f103482da87ae7acb63655"
+  },
+  "userId": {
+    "$oid": "68efd28b6d447c528458e9f5"
+  },
+  "date": "2025-10-16",
+  "__v": 0,
+  "breakfastMenuId": {
+    "$oid": "68f100d7d233abe9242a2419"
+  },
+  "createdAt": {
+    "$date": "2025-10-16T14:38:00.944Z"
+  },
+  "dinnerMenuId": {
+    "$oid": "68f100d7d233abe9242a243e"
+  },
+  "lunchMenuId": {
+    "$oid": "68f100d7d233abe9242a242f"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:38:00.944Z"
+  }
+}]

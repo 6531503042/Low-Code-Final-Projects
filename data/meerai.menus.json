@@ -1,0 +1,958 @@
+[{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2419"
+  },
+  "title": "Thai Jok (Rice Porridge)",
+  "mealType": "breakfast",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Authentic Thai breakfast",
+  "allergens": [],
+  "budgetMin": 45,
+  "budgetMax": 80,
+  "imageUrl": "https://images.unsplash.com/photo-1516684981049-7b3f9b5f52c7?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a241a"
+  },
+  "title": "Thai Jok (Rice Porridge) Signature",
+  "mealType": "breakfast",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Signature edition",
+  "allergens": [],
+  "budgetMin": 40,
+  "budgetMax": 100,
+  "imageUrl": "https://images.unsplash.com/photo-1516684981049-7b3f9b5f52c7?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a241b"
+  },
+  "title": "Pad Thai",
+  "mealType": "lunch",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Authentic Thai lunch",
+  "allergens": [
+    "peanut",
+    "shrimp",
+    "egg"
+  ],
+  "budgetMin": 70,
+  "budgetMax": 120,
+  "imageUrl": "https://images.unsplash.com/photo-1559847844-5315695daece?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a241c"
+  },
+  "title": "Pad Thai Deluxe",
+  "mealType": "lunch",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Deluxe edition",
+  "allergens": [
+    "peanut",
+    "shrimp",
+    "egg"
+  ],
+  "budgetMin": 60,
+  "budgetMax": 140,
+  "imageUrl": "https://images.unsplash.com/photo-1559847844-5315695daece?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a241d"
+  },
+  "title": "Tom Yum Goong",
+  "mealType": "dinner",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Authentic Thai dinner",
+  "allergens": [
+    "shrimp"
+  ],
+  "budgetMin": 100,
+  "budgetMax": 160,
+  "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a241e"
+  },
+  "title": "Tom Yum Goong Premium",
+  "mealType": "dinner",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Premium edition",
+  "allergens": [
+    "shrimp"
+  ],
+  "budgetMin": 90,
+  "budgetMax": 180,
+  "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a241f"
+  },
+  "title": "Green Curry Chicken",
+  "mealType": "dinner",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Authentic Thai dinner",
+  "allergens": [
+    "dairy"
+  ],
+  "budgetMin": 100,
+  "budgetMax": 170,
+  "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2420"
+  },
+  "title": "Green Curry Chicken Chef's Special",
+  "mealType": "dinner",
+  "cuisine": "Thai",
+  "isActive": true,
+  "notes": "Chef's Special edition",
+  "allergens": [
+    "dairy"
+  ],
+  "budgetMin": 90,
+  "budgetMax": 190,
+  "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2421"
+  },
+  "title": "Japanese Breakfast Set",
+  "mealType": "breakfast",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Authentic Japanese breakfast",
+  "allergens": [
+    "fish",
+    "soy",
+    "egg"
+  ],
+  "budgetMin": 120,
+  "budgetMax": 180,
+  "imageUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2422"
+  },
+  "title": "Japanese Breakfast Set Signature",
+  "mealType": "breakfast",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Signature edition",
+  "allergens": [
+    "fish",
+    "soy",
+    "egg"
+  ],
+  "budgetMin": 110,
+  "budgetMax": 200,
+  "imageUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2423"
+  },
+  "title": "Salmon Sushi Set",
+  "mealType": "lunch",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Authentic Japanese lunch",
+  "allergens": [
+    "fish",
+    "soy"
+  ],
+  "budgetMin": 180,
+  "budgetMax": 320,
+  "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d18c?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2424"
+  },
+  "title": "Salmon Sushi Set Deluxe",
+  "mealType": "lunch",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Deluxe edition",
+  "allergens": [
+    "fish",
+    "soy"
+  ],
+  "budgetMin": 170,
+  "budgetMax": 340,
+  "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d18c?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2425"
+  },
+  "title": "Tonkotsu Ramen",
+  "mealType": "dinner",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Authentic Japanese dinner",
+  "allergens": [
+    "gluten",
+    "egg",
+    "soy"
+  ],
+  "budgetMin": 160,
+  "budgetMax": 280,
+  "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2426"
+  },
+  "title": "Tonkotsu Ramen Premium",
+  "mealType": "dinner",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Premium edition",
+  "allergens": [
+    "gluten",
+    "egg",
+    "soy"
+  ],
+  "budgetMin": 150,
+  "budgetMax": 300,
+  "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2427"
+  },
+  "title": "Tempura Bento",
+  "mealType": "lunch",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Authentic Japanese lunch",
+  "allergens": [
+    "egg",
+    "gluten",
+    "soy"
+  ],
+  "budgetMin": 150,
+  "budgetMax": 260,
+  "imageUrl": "https://images.unsplash.com/photo-1571091718761-18b5b1457add?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2428"
+  },
+  "title": "Tempura Bento Chef's Special",
+  "mealType": "lunch",
+  "cuisine": "Japanese",
+  "isActive": true,
+  "notes": "Chef's Special edition",
+  "allergens": [
+    "egg",
+    "gluten",
+    "soy"
+  ],
+  "budgetMin": 140,
+  "budgetMax": 280,
+  "imageUrl": "https://images.unsplash.com/photo-1571091718761-18b5b1457add?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2429"
+  },
+  "title": "Chinese Congee",
+  "mealType": "breakfast",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Authentic Chinese breakfast",
+  "allergens": [],
+  "budgetMin": 50,
+  "budgetMax": 90,
+  "imageUrl": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a242a"
+  },
+  "title": "Chinese Congee Signature",
+  "mealType": "breakfast",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Signature edition",
+  "allergens": [],
+  "budgetMin": 40,
+  "budgetMax": 110,
+  "imageUrl": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a242b"
+  },
+  "title": "Yangzhou Fried Rice",
+  "mealType": "lunch",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Authentic Chinese lunch",
+  "allergens": [
+    "egg"
+  ],
+  "budgetMin": 80,
+  "budgetMax": 140,
+  "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a242c"
+  },
+  "title": "Yangzhou Fried Rice Deluxe",
+  "mealType": "lunch",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Deluxe edition",
+  "allergens": [
+    "egg"
+  ],
+  "budgetMin": 70,
+  "budgetMax": 160,
+  "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a242d"
+  },
+  "title": "Kung Pao Chicken",
+  "mealType": "dinner",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Authentic Chinese dinner",
+  "allergens": [
+    "peanut",
+    "soy"
+  ],
+  "budgetMin": 120,
+  "budgetMax": 200,
+  "imageUrl": "https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a242e"
+  },
+  "title": "Kung Pao Chicken Premium",
+  "mealType": "dinner",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Premium edition",
+  "allergens": [
+    "peanut",
+    "soy"
+  ],
+  "budgetMin": 110,
+  "budgetMax": 220,
+  "imageUrl": "https://images.unsplash.com/photo-1574484284002-8dcaaaeaf4a4?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a242f"
+  },
+  "title": "Dim Sum Assortment",
+  "mealType": "lunch",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Authentic Chinese lunch",
+  "allergens": [
+    "gluten",
+    "soy",
+    "egg",
+    "shrimp"
+  ],
+  "budgetMin": 140,
+  "budgetMax": 240,
+  "imageUrl": "https://images.unsplash.com/photo-1565299543927-795dd21bf5b2?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2430"
+  },
+  "title": "Dim Sum Assortment Chef's Special",
+  "mealType": "lunch",
+  "cuisine": "Chinese",
+  "isActive": true,
+  "notes": "Chef's Special edition",
+  "allergens": [
+    "gluten",
+    "soy",
+    "egg",
+    "shrimp"
+  ],
+  "budgetMin": 130,
+  "budgetMax": 260,
+  "imageUrl": "https://images.unsplash.com/photo-1565299543927-795dd21bf5b2?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2431"
+  },
+  "title": "Korean Egg Toast",
+  "mealType": "breakfast",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Authentic Korean breakfast",
+  "allergens": [
+    "egg",
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 70,
+  "budgetMax": 110,
+  "imageUrl": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2432"
+  },
+  "title": "Korean Egg Toast Signature",
+  "mealType": "breakfast",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Signature edition",
+  "allergens": [
+    "egg",
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 60,
+  "budgetMax": 130,
+  "imageUrl": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2433"
+  },
+  "title": "Bibimbap",
+  "mealType": "lunch",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Authentic Korean lunch",
+  "allergens": [
+    "egg",
+    "soy"
+  ],
+  "budgetMin": 130,
+  "budgetMax": 220,
+  "imageUrl": "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2434"
+  },
+  "title": "Bibimbap Deluxe",
+  "mealType": "lunch",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Deluxe edition",
+  "allergens": [
+    "egg",
+    "soy"
+  ],
+  "budgetMin": 120,
+  "budgetMax": 240,
+  "imageUrl": "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2435"
+  },
+  "title": "Korean BBQ Set",
+  "mealType": "dinner",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Authentic Korean dinner",
+  "allergens": [
+    "soy"
+  ],
+  "budgetMin": 220,
+  "budgetMax": 450,
+  "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2436"
+  },
+  "title": "Korean BBQ Set Premium",
+  "mealType": "dinner",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Premium edition",
+  "allergens": [
+    "soy"
+  ],
+  "budgetMin": 210,
+  "budgetMax": 470,
+  "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2437"
+  },
+  "title": "Kimchi Jjigae",
+  "mealType": "dinner",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Authentic Korean dinner",
+  "allergens": [
+    "soy",
+    "fish"
+  ],
+  "budgetMin": 120,
+  "budgetMax": 190,
+  "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2438"
+  },
+  "title": "Kimchi Jjigae Chef's Special",
+  "mealType": "dinner",
+  "cuisine": "Korean",
+  "isActive": true,
+  "notes": "Chef's Special edition",
+  "allergens": [
+    "soy",
+    "fish"
+  ],
+  "budgetMin": 110,
+  "budgetMax": 210,
+  "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2439"
+  },
+  "title": "Pancakes with Berries",
+  "mealType": "breakfast",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Authentic Western breakfast",
+  "allergens": [
+    "egg",
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 120,
+  "budgetMax": 200,
+  "imageUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a243a"
+  },
+  "title": "Pancakes with Berries Signature",
+  "mealType": "breakfast",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Signature edition",
+  "allergens": [
+    "egg",
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 110,
+  "budgetMax": 220,
+  "imageUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a243b"
+  },
+  "title": "Margherita Pizza",
+  "mealType": "lunch",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Authentic Western lunch",
+  "allergens": [
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 150,
+  "budgetMax": 260,
+  "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a243c"
+  },
+  "title": "Margherita Pizza Deluxe",
+  "mealType": "lunch",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Deluxe edition",
+  "allergens": [
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 140,
+  "budgetMax": 280,
+  "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a243d"
+  },
+  "title": "Classic Cheeseburger",
+  "mealType": "dinner",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Authentic Western dinner",
+  "allergens": [
+    "gluten",
+    "dairy"
+  ],
+  "budgetMin": 150,
+  "budgetMax": 240,
+  "imageUrl": "https://images.unsplash.com/photo-1571091718761-18b5b1457add?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a243e"
+  },
+  "title": "Classic Cheeseburger Premium",
+  "mealType": "dinner",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Premium edition",
+  "allergens": [
+    "gluten",
+    "dairy"
+  ],
+  "budgetMin": 140,
+  "budgetMax": 260,
+  "imageUrl": "https://images.unsplash.com/photo-1571091718761-18b5b1457add?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a243f"
+  },
+  "title": "Spaghetti Carbonara",
+  "mealType": "dinner",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Authentic Western dinner",
+  "allergens": [
+    "egg",
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 140,
+  "budgetMax": 230,
+  "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68f100d7d233abe9242a2440"
+  },
+  "title": "Spaghetti Carbonara Chef's Special",
+  "mealType": "dinner",
+  "cuisine": "Western",
+  "isActive": true,
+  "notes": "Chef's Special edition",
+  "allergens": [
+    "egg",
+    "dairy",
+    "gluten"
+  ],
+  "budgetMin": 130,
+  "budgetMax": 250,
+  "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&h=600&q=85",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-16T14:27:35.590Z"
+  }
+}]

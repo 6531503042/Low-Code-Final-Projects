@@ -1,9 +1,9 @@
 /// Environment configuration for MeeRaiKin app
 class Env {
   // Base URL for iOS simulator (localhost works)
-  // For Android emulator, use "http://10.0.2.2:3000"
-  // For real device testing, change to your computer's LAN IP (e.g., "192.168.1.100:3000")
-  static const String baseUrl = "http://localhost:3000";
+  // For Android emulator, use "http://10.0.2.2:8080/api"
+  // For real device testing, change to your computer's LAN IP (e.g., "192.168.1.100:8080/api")
+  static const String baseUrl = "http://localhost:8080";
   
   // App name
   static const String appName = "MeeRaiKin";
